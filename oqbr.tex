@@ -1,0 +1,142 @@
+% ------------------------------------------------------------------------------
+% The OpenQuake-engine Users Manual
+%
+% Authors:
+% 	Helen Crowley 		- GEM Foundation, Pavia, Italy
+% 	Vitor Silva 		- GEM Model Facility, Pavia, Italy
+%	Anirudh Rao 	   - GEM Model Facility, Pavia, Italy
+%
+% License:
+% Document distributed under the CC BY-NC-SA 4.0 License
+% Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+% http://creativecommons.org/licenses/by-nc-sa/4.0/
+%
+% Copyright:
+% © GEM Foundation, Pavia, Italy. November 2014.
+%
+%-------------------------------------------------------------------------------
+%  PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%-------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{book} % ------------------ Left-justified equations -
+\input{configuration/configuration.tex} % -------------------- Load packages -
+\input{configuration/structure.tex} % ------------------------ Load template -
+
+\begin{document}
+\input{book/glossary.tex} % ---------------------------------- Load glossary -
+
+%-------------------------------------------------------------------------------
+%  TITLE PAGE
+%-------------------------------------------------------------------------------
+
+\input{book/title-page.tex}
+
+%-------------------------------------------------------------------------------
+%  COPYRIGHT PAGE
+%-------------------------------------------------------------------------------
+
+\input{book/copyright-page.tex}
+
+%-------------------------------------------------------------------------------
+%  TABLE OF CONTENTS
+%-------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+\pagestyle{empty} % No headers
+\tableofcontents % Print the table of contents itself
+\cleardoublepage % Forces the first chapter to start on the right
+\pagestyle{fancy} % Print headers again
+
+%-------------------------------------------------------------------------------
+%  FOREWORD
+%-------------------------------------------------------------------------------
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+\input{book/preface.tex}
+
+%-------------------------------------------------------------------------------
+%  THE BOOK
+%-------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapter{Introduction}
+   \label{chap:introduction}
+	\input{book/01-introduction.tex}
+   \cleardoublepage
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapter{Seismic Risk Assessment with the OpenQuake-engine}
+   \label{chap:oq-risk}
+	\input{book/02-oq-risk.tex}
+   \cleardoublepage
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapter{Hazard Models}
+	\label{chap:hazard}
+	\input{book/03-hazard.tex}
+   \cleardoublepage
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapter{Exposure Models}
+   \label{chap:exposure}
+   \input{book/04-exposure.tex}
+   \cleardoublepage
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapter{Fragility and Vulnerability Models}
+	\label{chap:vulnerability}
+	\input{book/05-vulnerability.tex}
+   \cleardoublepage
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapter{Logic Trees}
+	\label{chap:logic-trees}
+	\input{book/06-logic-trees.tex}
+   \cleardoublepage
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapter{Calculation Examples}
+   \label{chap:examples}
+   \input{book/07-examples.tex}
+   \cleardoublepage
+
+%-------------------------------------------------------------------------------
+%  APPENDICES
+%-------------------------------------------------------------------------------
+\appendix
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapter{Appendix I}
+   \input{book/appendix1.tex}
+   \cleardoublepage
+
+%-------------------------------------------------------------------------------
+%  BIBLIOGRAPHY
+%-------------------------------------------------------------------------------
+
+\chapter{Bibliography}
+%\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
+\section{Books}
+%\addcontentsline{toc}{section}{Books}
+\printbibliography[heading=bibempty,type=book]
+\section{Articles}
+%\addcontentsline{toc}{section}{Articles}
+\printbibliography[heading=bibempty,type=article]
+\section{Other Sources}
+%\addcontentsline{toc}{section}{Reports}
+\printbibliography[heading=bibempty,nottype=book,nottype=article]
+
+%-------------------------------------------------------------------------------
+%  INDEX & GLOSSARY
+%-------------------------------------------------------------------------------
+
+\cleardoublepage
+\phantomsection
+\setlength{\columnsep}{0.75cm}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
+\printindex
+\printglossary
+\hfill \\ \thispagestyle{empty} \clearpage % ---------------- Final empty page -
+
+\end{document}
