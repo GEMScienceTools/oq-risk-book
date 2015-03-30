@@ -46,21 +46,21 @@ The features described below contribute to fulfill these requirements:
 % . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . > Figure
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=9cm]{./Pictures/qa/oq-engine_structure.pdf}
+\includegraphics[width=9cm]{figures/oq-engine_structure.pdf}
 \caption{A schematic describing the main components of the OpenQuake-engine 
     software.}
 \label{fig:oqe_structure}
 \end{figure}
 % . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . < Figure
-% 
+%
 The \gls{acr:oqe} includes different levels of modularity. 
 The first is the one separating the engine itself into a number of 
 libraries (see Figure \ref{fig:oqe_structure}), each one containing well 
 identified knowledge, objects and methods (e.g. the OQ-hazardlib  
 includes objects and methods needed to compute probabilistic 
 seismic hazard and the OQ-risklib contains methods to compute scenario 
-and probabilistic seismic risk). 
-% 
+and probabilistic seismic risk).
+%
 The second one pertains to the data model adopted in the development 
 of each library as a result of the abstraction process.
 %
@@ -76,16 +76,16 @@ According to \textcite{berkes2012} scientific software must be:
 Despite the distinction between software testing (in some cases also called 
 Quality Control) and \gls{acr:sqa} being somewhat vague and partly open to personal 
 judgment, it's clear that \gls{acr:sqa} is a more comprehensive and 
-overarching process than software testing. 
+overarching process than software testing.
 %
 \gls{acr:sqa} aims at the definition of the best processes  
 that should be used to provide guarantees that user expectations will 
-be met. 
-% 
+be met.
+%
 Software testing focuses instead on detecting software faults by inspecting 
 and testing the product at different stages of development.
 %
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 \subsection{Testing}
 Software testing can be implemented at different stages of the development 
 process, with varying strategies to approach the problem.
@@ -100,7 +100,7 @@ and typologies. In the current document we consider just a portion of them
 with the specific intent to illustrate the standards used in the 
 development of the \gls{acr:oqe} and particularly of its hazard component.
 %
-% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+% . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 \subsection{Quality Assurance}
 From the IEEE ``Standard for Software Quality Assurance Processes'':
 \emph{Software quality assurance is a set of activities that define and 
@@ -112,23 +112,23 @@ respect to the project. The SQA function may also be organizationally
 independent of the project; that is, free from technical, managerial, 
 and financial pressures from the project.} In this document we are not 
 covering topics related to \gls{acr:sqa} since this would go beyond its
-scopes.  
+scopes.
 %
 % ..............................................................................
 \section{Document structure}
 The document is organized into four main chapters and two appendixes.
- 
+
 In the current chapter we provide a very brief and general introduction 
 to software testing with a focus on the testing of scientific software. 
- 
+
 In the second chapter we describe the module, or unit, testing, 
 the acceptance tests adopted in the development of the 
-\gls{acr:oqe} and we discuss some examples. 
- 
+\gls{acr:oqe} and we discuss some examples.
+
 In the third and fourth chapters we illustrate tests comparing 
 the results computed with the \gls{acr:oqe} against the ones 
 computed using different probabilistic seismic hazard analysis 
 software.
-  
+
 Appendix \ref{sec:app1} provides details on the PEER tests 
 implemented in the \gls{acr:oqhl}.
