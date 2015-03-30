@@ -1,4 +1,4 @@
-oq-engine-docs
-==============
+oq-risk-book
+============
 
-Documentation and user manual for the OQ-engine v1.2
+Technical documentation for the risk engine and calculators in OpenQuake v1.3.
