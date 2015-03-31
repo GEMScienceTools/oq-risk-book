@@ -1,0 +1,11 @@
+\gls{acr:oqe} is developed and packaged within a ``continuous integration'' system (\href{https://ci.openquake.org/}{https://ci.openquake.org/}),
+based on the open-source software ``Jenkins'' (\href{http://jenkins-ci.org/}{http://jenkins-ci.org/}). Continuous integration is used in large software projects to run a full test suite of the complete software, either at fixed time intervals or, as in the current case, when any new code is committed to the repository. The continuous integration system does the following:
+
+\begin{enumerate}
+\item Run the full set of unit-tests for all code in all of the linked repositories. This will include the main (or ``master'') branch of the software repository, i.e. the one that will be used for packaging of the software, as well as some development branches.
+\item Run a test of the software installation. This test will install the software on a dedicated platform and check that the installation of the software is successful. This test also ensures that if changes occur in the dependency packages, and these changes affect or compromise the installation and operation of the software, these problems are recognised immediately.
+\item The software will also run standard Python tests for quality of code, compilation of documentation etc.
+\item Several long-running tests may also be run. These implement larger scale seismic hazard and risk calculations designed to test the overall performance of the engine.
+\end{enumerate}
+
+If at any point the tests should fail, the OpenQuake development team will be notified automatically. This ensures that software that is failing any of the tests will remain on the main branch of the repository for the minimum amount of time possible. Furthermore, if the continuous integration tests fail, the new code will not be integrated into the nightly package of the software.

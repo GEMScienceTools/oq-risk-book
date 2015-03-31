@@ -1,0 +1,27 @@
+The tests for the classical PSHA-based risk calculator assume the correct computation of the hazard curves at the locations of the assets in the exposure model. Thus, the risk tests implicitly rely on the acceptance tests for the classical PSHA-based hazard calculator.
+
+The source model used for the tests comprises a single vertical strike-slip fault with a Gutenberg-Richter b-value equal to 0.9 and a slip rate of 2 mm/yr. The MFD is a Gutenberg-Richter distribution truncated between magnitudes 5.0 and 6.5, while the Ground Motion Prediction Equation (GMPE) used is Sadigh et al. (1997), with sigma set to zero.
+
+Details of the fault geometry are given below:
+
+Fault type: Strike slip
+Fault dip: 90°
+Fault plane depths: 0—12 km
+Fault coordinates:
+South end: 38.0000°N, 122.0000°W
+North end: 38.2248°N, 122.0000°W
+
+The input models and job configuration files used in these test cases can be accessed here:
+\href{https://github.com/gem/oq-risklib/tree/master/openquake/qa_tests_data/classical_risk}
+{https://github.com/gem/oq-risklib/tree/master/openquake/qa_tests_data/classical_risk}
+
+\subsection{Single asset tests}
+\label{subsec:classical-single}
+
+% -----------------------------------------------------------------------------
+\subsection{Multiple asset tests}
+\label{subsec:classical-multiple}
+
+% -----------------------------------------------------------------------------
+\subsection{Calculation with logic-trees}
+\label{subsec:classical-logictrees}
