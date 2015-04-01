@@ -20,3 +20,4 @@ rm *.out
 rm *.ptc
 rm *.run.xml
 rm *.toc
+rm qareport/*.aux
