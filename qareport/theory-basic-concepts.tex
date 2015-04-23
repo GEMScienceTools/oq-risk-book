@@ -1,0 +1,36 @@
+% Rupture
+% GMF
+% SES
+% VF
+% FF
+% HC
+% Monte Carlo
+% GMPE
+
+An earthquake \textit{rupture model} describes the magnitude, geometry, and source typology of an earthquake occurrence.
+
+Given an earthquake rupture, the simulation of ground shaking values on a set of locations $\bm{x}=(x_{1}, x_{2}, ..., x_{N})$
+forms a \textit{ground motion field} ($GMF$). The ground motion field is simulated by sampling the probability distribution defined by the ground motion model.
+
+Seismicity in a region is described by a seismic source model ($SSM$), which is a collection of \textit{independent seismic sources}. Independence of seismic sources implies that the occurrence of an earthquake rupture in a source does not affect the probability of earthquake occurrence in the other sources.
+
+The main parameters describing a seismic source are the geometry constraining the earthquake rupture locations, and the \textit{magnitude-frequency distribution}, defining the average annual occurrence rate over a magnitude range. A seismic source model ($SSM$) can be therefore defined as a set of $I$ seismic sources ($Src$):
+\begin{equation}
+SSM = \left\{Src_{1}, Src_{2}, ..., Src_{I}\right\}
+\end{equation}
+
+Each source generates \textit{independent earthquake ruptures}. Independence of earthquake ruptures implies that the occurrence of an earthquake rupture in a source does not affect the probability of occurrence of the other potential earthquake ruptures in the same source. A generic $i$-th source defines therefore a set of $J$ earthquake ruptures:
+\begin{equation}
+Src_{i} = \left\{Rup_{i1}, Rup_{i2}, ..., Rup_{iJ}\right\}
+\end{equation}
+
+
+
+
+
+Probabilistic seismic hazard analysis allows calculating the probabilities of exceeding,
+at least once in a given time span, and at a given site, a set of ground motion
+parameter levels considering all possible earthquake ruptures defined in a
+seismic source model. Such a list of probability values is usually referred to
+as \textit{hazard curve}.
+
