@@ -5,23 +5,23 @@ The single asset test cases are designed to test the basic elements of the scena
 \item calculation of mean and standard deviation of scenario loss
 \end{itemize}
 
-\input{qareport/tab-asset.tex}
+\input{qareport/tables/tab-asset.tex}
 
 The location and taxonomy of the single asset in the exposure model used for the single-asset test cases for the scenario risk calculator are given in Table \ref{tab:asset}.
 
 % ---------------------------------------------------------------------------
 \subsubsection{Case 1a}
-Test case 1a uses a set of 10,000 identical ground motion values. There is no uncertainty in the vulnerability function used for this case. The coefficient of variation of the loss ratio is zero at all intensity measure levels.
+Test case 1a uses a set of 10 identical ground motion values. There is no uncertainty in the vulnerability function used for this case. The coefficient of variation of the loss ratio is zero at all intensity measure levels.
 
 The purpose of this case is to test the accurate computation of the mean and standard deviation of the loss, given zero variability in both the ground motion values and in the vulnerability function.
 
-\input{qareport/tab-scenario-gmfs-identical}
+\input{qareport/tables/tab-scenario-gmfs-identical-10}
 
-Table \ref{tab:scenario-gmfs-identical} lists five of the ten thousand ground motion values used in this test case.
+Table \ref{tab:scenario-gmfs-identical10} lists five of the ten ground motion values used in this test case.
 
-\input{qareport/tab-scenario-vf-zero-cov}
+\input{qareport/tables/tab-vf-tax1-zcov}
 
-Table \ref{tab:scenario-vf-zero-cov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
+Table \ref{tab:vf-tax1-zcov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
 
 Since all ground motion values are identical and there is no variability in the loss ratio, calculation of the loss ratios is straightforward in this case. The ground motion value at the location of the single asset is $PGA = 0.5 g$. The vulnerability function for this case provides mean loss ratio values at intensity measure levels $0.4 g$ and $0.6 g$, but none at $0.5 g$. The mean loss ratios at $0.4 g$ and $0.6 g$ are $0.10$ and $0.20$ respectively.
 
@@ -35,11 +35,27 @@ Table \ref{tab:result-scenario-risk-1a} shows the comparison of the OpenQuake re
 
 % ---------------------------------------------------------------------------
 \subsubsection{Case 1b}
-Test case 1b uses the same set of identical ground motion values as case 1a, and described in Table \ref{tab:scenario-gmfs-identical}. However, in contrast to case 1a, variability in the loss ratio \emph{is} considered in the vulnerability function for this case.
+This test case is identical to Case 1a described above, except for the use of the Beta CDF for the vulnerability functions instead of the lognormal CDF. Since the coefficients of variation in the vulnerability function are all zero, the results for this test case should be exactly the same as in Case 1a.
 
-\input{qareport/tab-scenario-vf-nonzero-cov}
+\input{qareport/results/tab-result-scenario-risk-1b}
 
-Table \ref{tab:scenario-vf-nonzero-cov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
+Table \ref{tab:result-scenario-risk-1b} shows the comparison of the OpenQuake result with the expected result.
+
+% ---------------------------------------------------------------------------
+\subsubsection{Case 1c}
+The purpose of this case is to test vulnerability functions that are specified as discrete probability mass functions rather than the parametric lognormal or beta distributions.
+
+\input{qareport/results/tab-result-scenario-risk-1b}
+
+Table \ref{tab:result-scenario-risk-1b} shows the comparison of the OpenQuake result with the expected result.
+
+% ---------------------------------------------------------------------------
+\subsubsection{Case 1d}
+Test case 1d uses a set of 1,000 identical ground motion values, and described in Table \ref{tab:scenario-gmfs-identical}. However, in contrast to case 1a, variability in the loss ratio \emph{is} considered in the vulnerability function for this case.
+
+\input{qareport/tables/tab-vf-tax1-nzcov}
+
+Table \ref{tab:vf-tax1-nzcov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
 
 Similar to case 1a described above, linear interpolation gives a mean loss ratio of $0.15$ for $PGA = 0.5 g$. The vulnerability function for this case provides coefficients of variation for the loss ratio at intensity measure levels $0.4 g$ and $0.6 g$, but none at $0.5 g$. The CoVs of the loss ratio at $0.4 g$ and $0.6 g$ are $0.24$ and $0.32$ respectively. The coefficient of variation of the loss ratio for $PGA = 0.5 g$ is thus obtained by linear interpolation as $0.28$.
 
@@ -49,43 +65,39 @@ Since there is no variability in the ground motion, the mean loss ratio for the 
 
 These numbers are multiplied by the asset value of $10,000$ to give the mean and standard deviation of loss for the scenario as $1,500$ and $420$ respectively.
 
-\input{qareport/results/tab-result-scenario-risk-1b}
+\input{qareport/results/tab-result-scenario-risk-1c}
 
 Table \ref{tab:result-scenario-risk-1b} shows the comparison of the OpenQuake result with the expected result.
 
 % ---------------------------------------------------------------------------
-\subsubsection{Case 1c}
-Variability in the ground motion is considered in all cases starting from case 1c. Ten thousand ground motion fields are generated for the given rupture, taking into consideration both the inter-event and intra-event variability in the ground motion. The ground motion prediction equation used is Boore and Atkinson (2008).
+\subsubsection{Case 1f}
+Variability in the ground motion is considered in all cases starting from case 1e. Ten thousand ground motion fields are generated for the given rupture, taking into consideration both the inter-event and intra-event variability in the ground motion. The ground motion prediction equation used is Boore and Atkinson (2008).
 
-The purpose of this case is to test the computation of the mean and standard deviation of the loss, given variability in both the ground motion values and no variability in the vulnerability function.
+The purpose of this case is to test the computation of the mean and standard deviation of the loss, given variability in both the ground motion values and in the vulnerability function.
 
-\input{qareport/tab-scenario-gmfs-single}
+\input{qareport/tables/tab-scenario-gmfs-single}
 
 Table \ref{tab:scenario-gmfs-single} lists five of the ten thousand ground motion values generated by OpenQuake.
 
-Since the mean loss ratios in the vulnerability function are not a linear function of the intensity measure levels, an analytical solution for the mean and standard deviation of loss for the scenario cannot be found. Thus, in order to check the OpenQuake results, an alternate implementation of the calculator algorithm in the programming language Julia is used.
+Since the mean loss ratios in the vulnerability function are not a linear function of the intensity measure levels, an analytical solution for the mean and standard deviation of loss for the scenario cannot be found. Thus, in order to check the OpenQuake results, an alternate implementation of the calculator algorithm in the programming language Julia is used for comparison.
 
-The mean and standard deviation of the logarithm of the ground motion calculated at the location of the asset as obtained by using the Boore and Atkinson (2008) equation are $-0.648$ and $0.564$ respectively. Assuming a lognormal distribution for the variability in the ground motion, one million ground motion values are generated using Julia with these logarithmic mean and standard deviation values.
-
-The variability in the loss ratios is zero for the vulnerability function used in this test case. Thus, the loss ratio for each simulated ground motion value is obtained through interpolation on the mean loss ratios provided by the vulnerability function. The mean and standard deviation of loss ratio for the scenario are estimated simply as the mean and standard deviation of the million simulated loss ratios.
-
-\input{qareport/results/tab-result-scenario-risk-1c}
-
-Table \ref{tab:result-scenario-risk-1c} shows the comparison of the OpenQuake result with the expected result.
-
-% ---------------------------------------------------------------------------
-\subsubsection{Case 1d}
-The purpose of this case is to test the computation of the mean and standard deviation of the loss, given variability in both the ground motion values and in the vulnerability function.
-
-Similar to case 1c, one million ground motion values are generated using Julia with the logarithmic mean and standard deviation of the ground motion value at the location of the asset as obtained by using the Boore and Atkinson (2008).
+The mean and standard deviation of the logarithm of the ground motion calculated at the location of the asset as obtained by using the Boore and Atkinson (2008) equation are $-0.648$ and $0.564$ respectively. Assuming a lognormal distribution for the variability in the ground motion, ten thousand ground motion values are generated using Julia with these logarithmic mean and standard deviation values.
 
 The mean loss ratio and standard deviation of loss ratio for each simulated ground motion value are obtained through interpolation on the mean loss ratios and corresponding coefficients of variation provided by the vulnerability function. Using the interpolated mean and standard deviation of loss ratios, one loss ratio is sampled for each ground motion value, assuming a lognormal distibution.
 
-The mean and standard deviation of loss ratio for the scenario are estimated simply as the mean and standard deviation of the million simulated loss ratios.
+The mean and standard deviation of loss ratio for the scenario are estimated simply as the mean and standard deviation of the ten thousand simulated loss ratios.
 
-\input{qareport/results/tab-result-scenario-risk-1d}
+\input{qareport/results/tab-result-scenario-risk-1f}
 
-Table \ref{tab:result-scenario-risk-1d} shows the comparison of the OpenQuake result with the expected result.
+Table \ref{tab:result-scenario-risk-1f} shows the comparison of the OpenQuake result with the expected result.
+
+% ---------------------------------------------------------------------------
+\subsubsection{Case 1g}
+This test case is identical to Case 1f described above, except for the use of the Beta CDF for the vulnerability functions instead of the lognormal CDF.
+
+\input{qareport/results/tab-result-scenario-risk-1g}
+
+Table \ref{tab:result-scenario-risk-1g} shows the comparison of the OpenQuake result with the expected result.
 
 % ---------------------------------------------------------------------------
 \subsubsection{Case 1e}

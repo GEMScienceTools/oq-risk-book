@@ -1,7 +1,7 @@
 The single asset test cases are designed to test the basic elements of the scenario damage calculator, such as:
 
 \begin{itemize}
-\item basic loss field computation
+\item loss field computation for a given set of ground motion fields
 \item calculation of mean and standard deviation of scenario loss
 \end{itemize}
 
@@ -9,21 +9,23 @@ The location and taxonomy of the single asset in the exposure model used for the
 
 % ---------------------------------------------------------------------------
 \subsubsection{Case 1a}
-Test case 1a uses a set of 10,000 identical ground motion values.
+Test case 1a uses a set of 10 identical ground motion values.
 
-The purpose of this case is to test the accurate computation of the mean and standard deviation of the probability of occurence of each damage state over the specified time period, given zero variability in the ground motion values.
+The purpose of this case is to test the accurate computation of the probability of occurence of each damage state, given zero variability in the ground motion values. This case exercises the interpolation of discrete fragility functions. Hand calculations are used to verify the correctness of the results obtained.
 
-\input{qareport/tab-scenario-gmfs-identical}
+\input{qareport/tables/tab-scenario-gmfs-identical-10}
 
-Table \ref{tab:scenario-gmfs-identical} lists five of the ten thousand ground motion values used in this test case.
+Table \ref{tab:scenario-gmfs-identical-10} lists five of the ten ground motion values used in this test case.
 
-\input{qareport/tab-scenario-vf-zero-cov}
+\input{qareport/tables/tab-ff-disc-zndl}
 
-Table \ref{tab:scenario-vf-zero-cov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
+Table \ref{tab:ff-disc-zndl} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
 
-Since all ground motion values are identical and there is no variability in the loss ratio, calculation of the loss ratios is straightforward in this case. The ground motion value at the location of the single asset is $PGA = 0.5 g$. The vulnerability function for this case provides mean loss ratio values at intensity measure levels $0.4 g$ and $0.6 g$, but none at $0.5 g$. The mean loss ratios at $0.4 g$ and $0.6 g$ are $0.10$ and $0.20$ respectively.
+Since all ground motion values are identical, calculation of the damage distribution is straightforward in this case. The ground motion value at the location of the single asset is $PGA = 0.5 g$. The discrete fragility function for this case provides damage state probabilities of exceedance at intensity measure levels $0.4 g$ and $0.6 g$, but none at $0.5 g$. The exceedance probabilities at $0.4 g$ and $0.6 g$ corresponding to the discrete damage states $[ds_1, ds_2, ds_3, ds_4]$ are $[0.152, 0.014, 0.008, 0.006]$ and $[0.846, 0.129, 0.085, 0.067]$ respectively.
 
-The mean loss ratio at $0.5 g$ is obtained by interpolating between these two values. Linear interpolation gives a mean loss ratio of $0.15$ for $PGA = 0.5 g$. Since there is no variability in the ground motion, the mean loss ratio is also $0.15$, and the standard deviation of the loss ratio is $0.0$.
+The exceedance probabilities at $0.5 g$ are obtained by interpolating between these two sets of values. Linear interpolation gives exceedance probabilities of $[0.499, 0.0715, 0.08225, 0.0365]$ for $PGA = 0.5 g$. The probabilities of damage state occurrence are given by the pairwise differences of the exceedance probabilities as $[0.4990 - 0.0715, 0.0715 - 0.08225, 0.08225 - 0.0365, 0.0365]$
+
+Since there is no variability in the ground motion, the mean loss ratio is also $0.15$, and the standard deviation of the loss ratio is $0.0$.
 
 These numbers are multiplied by the asset value of $10,000$ to give the mean and standard deviation of loss for the scenario as $1,500$ and $0$ respectively.
 
@@ -33,11 +35,11 @@ Table \ref{tab:result-scenario-damage-1a} shows the comparison of the OpenQuake 
 
 % ---------------------------------------------------------------------------
 \subsubsection{Case 1b}
-Test case 1b uses the same set of identical ground motion values as case 1a, and described in Table \ref{tab:scenario-gmfs-identical}. However, in contrast to case 1a, variability in the loss ratio \emph{is} considered in the vulnerability function for this case.
+Test case 1b uses the same set of identical ground motion values as case 1a, and described in Table \ref{tab:scenario-gmfs-identical-10}. However, in contrast to case 1a, variability in the loss ratio \emph{is} considered in the vulnerability function for this case.
 
-\input{qareport/tab-scenario-vf-nonzero-cov}
+\input{qareport/tables/tab-ff-cont-zmin}
 
-Table \ref{tab:scenario-vf-nonzero-cov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
+Table \ref{tab:ff-cont-zmin} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
 
 Similar to case 1a described above, linear interpolation gives a mean loss ratio of $0.15$ for $PGA = 0.5 g$. The vulnerability function for this case provides coefficients of variation for the loss ratio at intensity measure levels $0.4 g$ and $0.6 g$, but none at $0.5 g$. The CoVs of the loss ratio at $0.4 g$ and $0.6 g$ are $0.24$ and $0.32$ respectively. The coefficient of variation of the loss ratio for $PGA = 0.5 g$ is thus obtained by linear interpolation as $0.28$.
 
@@ -57,7 +59,7 @@ Variability in the ground motion is considered in all cases starting from case 1
 
 The purpose of this case is to test the computation of the mean and standard deviation of the loss, given variability in both the ground motion values and no variability in the vulnerability function.
 
-\input{qareport/tab-scenario-gmfs-single}
+\input{qareport/tables/tab-scenario-gmfs-single}
 
 Table \ref{tab:scenario-gmfs-single} lists five of the ten thousand ground motion values generated by OpenQuake.
 
