@@ -1,0 +1,17 @@
+Test case 1a uses a set of 5 precomputed ground motion values. There is no uncertainty in the vulnerability function used for this case. The coefficient of variation of the loss ratio is zero at all intensity measure levels.
+
+The purpose of this case is to test the accurate computation of the mean and standard deviation of the loss, given zero variability in  in the vulnerability function.
+
+\input{qareport/tables/tab-gmfs-diff-l1-5}
+
+Table \ref{tab:gmfs-diff-l1-5} lists the five ground motion values used in this test case.
+
+\input{qareport/tables/tab-vf-ln-tax1-zcov}
+
+Table \ref{tab:vf-ln-tax1-zcov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
+
+Since all ground motion values are identical and there is no variability in the loss ratio, calculation of the loss ratios is straightforward in this case. The ground motion value at the location of the single asset is $PGA = 0.5 g$. The vulnerability function for this case provides mean loss ratio values at intensity measure levels $0.4 g$ and $0.6 g$, but none at $0.5 g$. The mean loss ratios at $0.4 g$ and $0.6 g$ are $0.10$ and $0.20$ respectively.
+
+The mean loss ratio at $0.5 g$ is obtained by interpolating between these two values. Linear interpolation gives a mean loss ratio of $0.15$ for $PGA = 0.5 g$. Since there is no variability in the ground motion, the mean loss ratio is also $0.15$, and the standard deviation of the loss ratio is $0.0$.
+
+These numbers are multiplied by the asset value of $10,000$ to give the mean and standard deviation of loss for the scenario as $1,500$ and $0$ respectively.

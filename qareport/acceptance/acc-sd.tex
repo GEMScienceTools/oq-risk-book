@@ -1,0 +1,34 @@
+The tests for the scenario damage calculator assume the correct computation of the ground motion fields at the locations of the assets in the exposure model. Thus, the risk quality assurance tests implicitly rely on the acceptance tests for the scenario hazard calculator.
+
+The rupture model used for the tests comprises a magnitude $M6.7$ rupture on a vertical strike-slip fault.\\
+
+\noindent Details of the rupture are given below:\\
+
+\noindent
+Fault type: Strike slip\\
+Fault dip: $90^{\circ}$\\
+Fault plane depths: 0--20 km\\
+Fault coordinates:\\
+South end: $38.0000^{\circ} N$, $122.0000^{\circ} W$\\
+North end: $38.2248^{\circ} N$, $122.0000^{\circ} W$\\
+Rupture magnitude: 6.7\\
+Rupture hypocenter: $38.1124^{\circ} N$, $122.0000^{\circ} W$\\
+Hypocenter depth: 10 km\\
+
+The complete collection of input models and job configuration files used in these test cases can be accessed here:
+\href{https://github.com/gem/oq-risklib/tree/master/openquake/qa_tests_data/scenario_damage}
+{https://github.com/gem/oq-risklib/tree/master/openquake/qa\_tests\_data/scenario\_damage}
+
+\subsection{Single asset tests}
+\label{subsec:acc-sd-single}
+\include{qareport/acc-sd-single}
+
+% -----------------------------------------------------------------------------
+\subsection{Multiple asset tests}
+\label{subsec:acc-sd-multiple}
+\include{qareport/acc-sd-multiple}
+
+% -----------------------------------------------------------------------------
+\subsection{Calculation with logic-trees}
+\label{subsec:acc-sd-lt}
+\include{qareport/acc-sd-lt}

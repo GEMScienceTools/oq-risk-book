@@ -1,0 +1,13 @@
+Test case 1d uses a set of 1,000 identical ground motion values, and described in Table \ref{tab:gmfs-iden-l1-1000}. However, in contrast to case 1a, variability in the loss ratio \emph{is} considered in the vulnerability function for this case.
+
+\input{qareport/tables/tab-vf-ln-tax1-nzcov}
+
+Table \ref{tab:vf-ln-tax1-nzcov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
+
+Similar to case 1a described above, linear interpolation gives a mean loss ratio of $0.15$ for $PGA = 0.5 g$. The vulnerability function for this case provides coefficients of variation for the loss ratio at intensity measure levels $0.4 g$ and $0.6 g$, but none at $0.5 g$. The CoVs of the loss ratio at $0.4 g$ and $0.6 g$ are $0.24$ and $0.32$ respectively. The coefficient of variation of the loss ratio for $PGA = 0.5 g$ is thus obtained by linear interpolation as $0.28$.
+
+The loss ratio at $PGA = 0.5 g$ follows a lognormal distribution with a mean of $0.15$ and a standard deviation of $0.28 \times 0.15 = 0.042$.
+
+Since there is no variability in the ground motion, the mean loss ratio for the scenario is also $0.15$, and the standard deviation of the loss ratio is $0.042$.
+
+These numbers are multiplied by the asset value of $10,000$ to give the mean and standard deviation of loss for the scenario as $1,500$ and $420$ respectively.
