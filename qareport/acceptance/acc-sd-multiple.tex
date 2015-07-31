@@ -7,17 +7,27 @@ The multiple asset test cases are designed to test the loss aggregation function
 
 The list of assets in the exposure model used for the multiple-asset test cases for the scenario damage calculator is given in Table \ref{tab:assets}.
 
-Ten thousand ground motion fields are generated for the given rupture, taking into consideration both the inter-event and intra-event variability in the ground motion. The ground motion prediction equation used is Boore and Atkinson (2008), and the Jayaram and Baker (2009) model for spatial correlation of ground motion values is applied.
 
-\input{qareport/tables/tab-scenario-gmfs-multiple}
-
-Table \ref{tab:scenario-gmfs-multiple} lists three of the ten thousand ground motion fields generated.
 
 % ---------------------------------------------------------------------------
 \subsubsection{Case 4a}
-The purpose of this case is to test the computation of the mean and standard deviation of the number of buildings in each damage state, given variability in the ground motion values. The computation of the mean and standard deviation of the portfolio loss is also tested in this case.
+\input{qareport/cases/sr-4a}
+\input{qareport/results/sr-4a}
+Table \ref{tab:result-sr-4a} shows the comparison of the OpenQuake result with the expected result.
 
-\input{qareport/results/tab-result-scenario-damage-4a}
+% ---------------------------------------------------------------------------
+\subsubsection{Case 4b}
+\input{qareport/cases/sr-4b}
+\input{qareport/results/sr-4b}
+Table \ref{tab:result-sr-4b} shows the comparison of the OpenQuake result with the expected result.
+% ---------------------------------------------------------------------------
+\subsubsection{Case 4c}
+\input{qareport/cases/sr-4c}
+\input{qareport/results/sr-4c}
+Table \ref{tab:result-sr-4c} shows the comparison of the OpenQuake result with the expected result.
 
-Table \ref{tab:result-scenario-damage-4a} shows the comparison of the OpenQuake result with the expected result.
-
+% ---------------------------------------------------------------------------
+\subsubsection{Case 4d}
+\input{qareport/cases/sr-4d}
+\input{qareport/results/sr-4d}
+Table \ref{tab:result-sr-4d} shows the comparison of the OpenQuake result with the expected result.
