@@ -4,16 +4,18 @@ The purpose of this case is to test vulnerability functions that are specified a
 
 The vulnerability function used in this test case is shown in Table~\ref{tab:vf-pm-tax1}. This vulnerability function specifies a set of loss and the corresponding probabilities of occurrence for these loss ratios at different intensity measure levels.
 
-The same one thousand identical ground motion values described earlier in Case~1c and shown in Table~\ref{tab:gmfs-iden-l1-1000} are used in this test case.
+The same identical ground motion values described earlier in Case~1c and shown in Table~\ref{tab:gmfs-iden-l1-1000} are used in this test case. However, the total number of ground motion fields is increased to 10,000 for this case, since the spread in the loss ratio distribution is much larger for the vulnerability function used in this case.
 
-The vulnerability function for this case provides probabilities of occurrence for a set of loss ratios ${0.000, 0.005, 0.050, 0.200, 0.450, 0.800, 1.000}$ at intensity measure levels $PGA = 0.4 g$ and $0.6 g$, but not at $0.5 g$. The specified set of probabilities for $PGA = 0.4 g$ are ${0.950, 0.030, 0.015, 0.004, 0.001, 0.000, 0.000}$, and those at $PGA = 0.6 g$ are ${0.490, 0.380, 0.080, 0.020, 0.015, 0.010, 0.005}$. Linear interpolation is used to obtain the probabilities of occurrence for the same set of loss ratios at $PGA = 0.5 g$ as ${0.72, 0.205, 0.0475, 0.012, 0.008, 0.005, 0.0025}$.
+The vulnerability function for this case provides probabilities of occurrence for a set of loss ratios {0.000, 0.005, 0.050, 0.200, 0.450, 0.800, 1.000} at intensity measure levels $PGA = 0.4 g$ and $0.6 g$, but not at $0.5 g$. The specified set of probabilities for $PGA = 0.4 g$ are {0.490, 0.380, 0.080, 0.020, 0.015, 0.010, 0.005}, and those at $PGA = 0.6 g$ are {0.300, 0.400, 0.160, 0.080, 0.030, 0.020, 0.010}. Linear interpolation is used to obtain the probabilities of occurrence for the same set of loss ratios at $PGA = 0.5 g$ as {0.395, 0.390, 0.120, 0.050, 0.0225, 0.015, 0.0075}.
 
-For the discrete random variable LR, which has the probability mass function $lr_1 \mapsto p_1, \dotsc, lr_n \mapsto p_n$, the mean and standard deviation are calculated as:
+For the discrete random variable LR, which has the probability mass function (PMF): $lr_1 \mapsto p_1, \dotsc, lr_n \mapsto p_n$, the mean and standard deviation are calculated as:
 
 \begin{equation}
-\mu_{LR} = \sum_{i=1}^{n} p_i \dot lr_i
+\mu_{LR} = \sum_{i=1}^{n} p_i \cdot lr_i
 \end{equation}
 
 \begin{equation}
-\sigma_{LR} = \sqrt{\sum_{i=1}^{n} p_i \dot lr_i^2 - \mu_{LR}^2}
+\sigma_{LR} = \sqrt{\sum_{i=1}^{n} p_i \cdot lr_i^2 - \mu_{LR}^2}
 \end{equation}
+
+Based on the above equations, the expected values of the mean and standard deviation of the loss ratio for our case are calculated as $0.047575$ and $0.147318$ respectively. These numbers are multiplied by the asset value of $10,000$ to give the expected mean and standard deviation of loss for the scenario as $475.75$ and $1,473.18$ respectively.
