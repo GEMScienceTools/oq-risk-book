@@ -1,0 +1,5 @@
+This test case repeats the exercise from Case~1f and Case~1g, using the discrete probability vulnerability functions instead of the parametric lognormal or Beta distribution based functions used in the previous two cases.
+
+In this case, for each simulated ground motion value, the probabilities of occurrence of the set of loss ratios used by the vulnerability function are obtained through interpolation as described earlier in Case~1c. Using the set of loss ratios and the corresponding interpolated probabilities, one loss ratio is sampled for each ground motion value.
+
+The mean and standard deviation of loss ratio for the scenario are estimated simply as the mean and standard deviation of the ten thousand simulated loss ratios. The OpenQuake values are compared with the alternate implementation of the algorithm in Julia.
