@@ -1,1 +1,17 @@
-The purpose of this case is to test vulnerability functions that are specified as discrete probability mass functions rather than the parametric lognormal or beta distributions.
+The purpose of this case is to test the correct sampling of the loss ratio from the prescribed distribution of the vulnerability function, given a specific intensity of ground motion. The 1,000 ground motion fields used in this test case are identical, i.e., variability in the ground motion is not considered in this case. However, in contrast to case 1a, variability in the loss ratio \emph{is} considered in the vulnerability function for this case. This permits us to compare the computed mean and standard deviation of the asset loss with the expected values, which are simply obtained through interpolation on the vulnerability function.
+
+\input{qareport/tables/tab-gmfs-iden-l1-1000}
+
+Table~\ref{tab:gmfs-iden-l1-1000} lists five of the one thousand identical ground motion values used in this test case.
+
+\input{qareport/tables/tab-vf-ln-tax1-nzcov}
+
+Table~\ref{tab:vf-ln-tax1-nzcov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
+
+The vulnerability function for this case provides mean loss ratio values and coefficients of variation at intensity measure levels $PGA = 0.4 g$ and $0.6 g$, but none at $0.5 g$. Linear interpolation gives a mean loss ratio of $0.15$ for $PGA = 0.5 g$. Similarly, the coefficients of variation of the loss ratio at $0.4 g$ and $0.6 g$ are $0.24$ and $0.32$ respectively. The coefficient of variation of the loss ratio for $PGA = 0.5 g$ is obtained by linear interpolation as $0.28$.
+
+The loss ratio at $PGA = 0.5 g$ follows a lognormal distribution with a mean of $0.15$ and a standard deviation of $0.28 \times 0.15 = 0.042$.
+
+Since there is no variability in the ground motion, the expected value of the mean loss ratio for the scenario is also $0.15$, and the expected value of the standard deviation of the loss ratio is $0.042$.
+
+These numbers are multiplied by the asset value of $10,000$ to give the expected mean and standard deviation of loss for the scenario as $1,500$ and $420$ respectively.
