@@ -1,0 +1,15 @@
+Test case 1a uses a set of 5 precomputed ground motion values to test the correct interpolation of the damage state exceedance probabilities of the discrete fragility function at intermediate intensity measure levels.
+
+Table~\ref{tab:gmfs-diff-l1-5} lists the five ground motion values used in this test case.
+
+\input{qareport/tables/tab-ff-disc-tax1-zndl}
+
+Table~\ref{tab:ff-disc-tax1-zndl} shows the set of ground motion intensity levels and corresponding probabilities of exceedance for the four damage states for the discrete fragility function used in this test case.
+
+Since all ground motion values are identical, calculation of the damage distribution is straightforward in this case. The ground motion value at the location of the single asset is $PGA = 0.5 g$. The discrete fragility function for this case provides damage state probabilities of exceedance at intensity measure levels $0.4 g$ and $0.6 g$, but none at $0.5 g$. The exceedance probabilities at $0.4 g$ and $0.6 g$ corresponding to the discrete damage states $[ds_1, ds_2, ds_3, ds_4]$ are $[0.152, 0.014, 0.008, 0.006]$ and $[0.846, 0.129, 0.085, 0.067]$ respectively.
+
+The exceedance probabilities at $0.5 g$ are obtained by interpolating between these two sets of values. Linear interpolation gives exceedance probabilities of $[0.499, 0.0715, 0.08225, 0.0365]$ for $PGA = 0.5 g$. The probabilities of damage state occurrence are given by the pairwise differences of the exceedance probabilities as $[0.4990 - 0.0715, 0.0715 - 0.08225, 0.08225 - 0.0365, 0.0365]$
+
+Since there is no variability in the ground motion, the mean loss ratio is also $0.15$, and the standard deviation of the loss ratio is $0.0$.
+
+These numbers are multiplied by the asset value of $10,000$ to give the mean and standard deviation of loss for the scenario as $1,500$ and $0$ respectively.
