@@ -21,3 +21,4 @@ rm *.ptc
 rm *.run.xml
 rm *.toc
 rm qareport/*.aux
+find . -name \*.aux -delete

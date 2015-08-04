@@ -1,0 +1,11 @@
+In addition to calculating individual asset losses and portfolio losses for a scenario event, OpenQuake also calculates the insured losses for individual assets and for the portfolio, if requested. Each loss type can be assigned a deductible and an insurance limit, specified in either relative or absolute terms with respect to the replacement value of the asset.
+
+Given an asset loss $loss$, and a deductible component of insurance $deductible$, and an insurance limit $limit$, the insured loss is zero if the asset loss is below the deductible. For losses above the deductible amount, insurance pays the difference up to the limit. The insured loss is thus the smaller of the difference and the insurance limit. The equation used for computing the insured loss is presented below:
+
+\begin{equation}
+	insured\_loss = min(max(loss - limit, 0.0), limit - deductible)
+\end{equation}
+
+The insured asset losses are collected for each of the ground motion fields, and finally the mean and standard deviation of the asset insured losses are calculated. The portfolio insured loss mean and standard deviation are also computed.
+
+The input models for this test case are based on those used earlier in Case~1f. The deductible component of insurance is $0.1\times$ the cost of replacement of the asset. The insurance limit is capped at $0.8\times$ the cost of replacement of the asset.
