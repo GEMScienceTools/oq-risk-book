@@ -1,0 +1,17 @@
+Test Case~1d repeats the exercise from Case~1b, with the difference that the continuous fragility function specifies a minimum ground motion intensity, below which the probability of exceedance for all damage states is assumed to be zero.
+
+Table~\ref{tab:gmfs-diff-l1-5b} lists the five ground motion values used in this test case, and Table~\ref{tab:ff-cont-tax1-zmin} the continuous fragility function used in this test case. The "minimum intensity level" is specified to be $0.3 g$.
+
+The ground motion values at the location of the single asset are $[1.3, 0.044, 0.22, 1.0, 1.2] g$. The calculation of the damage state exceedance probabilities proceeds in exactly the same manner as demonstrated in Case~1a, except that for the ground motion values of $0.044 g$ and $0.22 g$, the probabilities for all four damage states are assumed to be zero.
+
+We have the following sets of damage state probabilities:
+
+\begin{itemize}
+	\item GMF1: $[0.0436, 0.191, 0.207, 0.162, 0.397]$
+	\item GMF2: $[1.000, 0.000, 0.000, 0.000, 0.000]$
+	\item GMF3: $[1.000, 0.000, 0.000, 0.000, 0.000]$
+	\item GMF4: $[0.091, 0.272, 0.226, 0.148, 0.263]$
+	\item GMF5: $[0.055, 0.215, 0.215, 0.160, 0.354]$
+\end{itemize}
+
+The mean and standard deviation of the four damage state probabilities and also the probability of observing no damage is now calculated using the above set of probabilities collected from each of the five ground motion simulations.
