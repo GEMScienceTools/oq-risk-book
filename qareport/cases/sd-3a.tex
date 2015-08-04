@@ -1,0 +1,7 @@
+The OpenQuake scenario damage calculator allows the user to employ more than one ground motion prediction equation (GMPE) for computing the ground motion fields used for the loss calculation. The mean and standard deviation of the damage state probabilities (or fractions), are calculated and output for each GMPE branch independently. No sampling is involved, and any branch weights assigned to the different GMPE branches are ignored.
+
+A single asset is used in this test case. Table~\ref{tab:ff-cont-tax1-zmin} shows the parameters of the continuous lognormal fragility function used in this test case.
+
+The two ground motion prediction equations used are Boore and Atkinson (2008), and Chiou and Youngs (2008). Ten thousand ground motion fields are generated using OpenQuake for the given rupture, taking into consideration both the inter-event and intra-event variability in the ground motion, for both GMPE branches. The rest of the loss calculation procedure follows the same steps as described earlier in Case~1e.
+
+For comparison, one million ground motion fields are generated using both GMPEs using Julia.
