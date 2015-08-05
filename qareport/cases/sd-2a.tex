@@ -1,0 +1,43 @@
+The purpose of this case is to test the basic elements of a scenario damage calculation involving multiple assets, such as the computation of the mean and standard deviation of the number of buildings in each damage state for assets aggregated by taxonomy, and also for the overall portfolio comprising all assets.
+
+The list of assets in the exposure model used in this case is given in Table~\ref{tab:assets-tax3}.
+
+Five precomputed ground motion fields are used as the starting point for this case. These ground motion fields take into consideration both the inter-event and intra-event variability in the ground motion. The ground motion prediction equation used is Boore and Atkinson (2008), and the Jayaram and Baker (2009) model for spatial correlation of ground motion values is applied. Table~\ref{tab:gmfs-diff-l7-5} lists the ground motion fields used in this test case.
+
+\input{qareport/tables/tab-ff-cont-tax3-zmin}
+
+Table~\ref{tab:ff-cont-tax3-zmin} shows the parameters for the continuous lognormal fragility functions for the three taxonomies.
+
+Consider asset $a3$, which has the taxonomy $tax1$.  The ground motion values at the location of the single asset are $[0.15, 0.05, 0.05, 0.15, 0.15] g$. Consider the first value of $PGA = 0.15 g$. The exceedance probabilities for the four damage states $ds_1, ds_2, ds_3, ds_4$ are obtained by employing the equation for the cumulative distribution function for the lognormal distribution, using the parameters specified by the fragility function for $tax1$. This process is described in Case~1b, and is not repeated here. The damage state probabilities are multiplied by the number of units comprising asset $a3$, which in this case is one. This gives us the expected number of buildings for asset $a3$ in each damage state for the five ground motions:
+
+\begin{itemize}
+	\item GMF1: $[0.9131, 0.0774, 0.0077, 0.0013, 0.0004]$
+	\item GMF2: $[0.9982, 0.0018, 0.0000, 0.0000, 0.0000]$
+	\item GMF3: $[0.9982, 0.0018, 0.0000, 0.0000, 0.0000]$
+	\item GMF4: $[0.9131, 0.0774, 0.0077, 0.0013, 0.0004]$
+	\item GMF5: $[0.9131, 0.0774, 0.0077, 0.0013, 0.0004]$
+\end{itemize}
+
+The mean number of buildings with no damage for asset $a3$ is thus calculated as $(0.9131 + 0.9982 + 0.9982 + 0.9131 + 0.9131)/5 = 0.94716$. The standard deviation of the number of buildings with no damage for asset $a3$ is $0.04661$. Similarly, the mean and standard deviation of the number of buildings with no damage for the other assets are calculated and listed below:
+
+\begin{itemize}
+	\item $a1$ (tax1): mean = $0.28370$; std.dev = $0.29192$
+	\item $a2$ (tax2): mean = $0.89301$; std.dev = $0.11739$
+	\item $a3$ (tax1): mean = $0.94716$; std.dev = $0.04661$
+	\item $a4$ (tax3): mean = $0.61303$; std.dev = $0.24347$
+	\item $a5$ (tax1): mean = $0.59337$; std.dev = $0.41368$
+	\item $a6$ (tax2): mean = $0.77733$; std.dev = $0.18346$
+	\item $a7$ (tax1): mean = $0.65092$; std.dev = $0.24269$
+\end{itemize}
+
+Repeating this for each of the other damage states, we can also compute the mean and standard deviation of the number of buildings in each damage state for the seven assets. Table \ref{tab:result-sd-2a} shows the comparison of the OpenQuake result with the expected result for assets $a1$, $a2$, and $a3$.
+
+\input{qareport/results/sd-2a}
+
+Now, aggregating the expected number of buildings of taxonomy $tax1$ with no damage for each of the five ground motions, we have the following for $tax1$: $0.28370 + 0.94716 + 0.59337 + 0.65092 = 2.47515$. Repeating this for each of the other damage states, we can also compute the expected total number of buildings in each damage state for assets of taxonomy $tax1$. Table \ref{tab:result-sd-2a-tax} shows the comparison of the OpenQuake result with the expected result for taxonomies $tax1$, $tax2$, and $tax3$.
+
+\input{qareport/results/sd-2a-tax}
+
+Finally, aggregating the expected number of buildings with no damage for across all taxonomies for each of the five ground motions, we have the following for the overall portfolio: $0.28370 + 0.89301 + 0.94716 + 0.61303 + 0.59337 + 0.77733 + 0.65092 = 4.75852$. Repeating this for each of the other damage states, we can also compute the expected total number of buildings in each damage state for the overall portfolio. Table \ref{tab:result-sd-2a-total} shows the comparison of the OpenQuake result with the expected result for the overall portfolio.
+
+\input{qareport/results/sd-2a-total}

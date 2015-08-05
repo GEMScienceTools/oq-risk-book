@@ -1,4 +1,4 @@
-The purpose of this case is to test the computation of the mean and standard deviation of the number of buildings in each damage state, given variability in the ground motion values. The computation of the mean and standard deviation of the portfolio loss is also tested in this case.
+The purpose of this case is to test the basic elements of a scenario risk calculation involving multiple assets, such as the computation of the mean and standard deviation of the total loss for a portfolio of assets.
 
 \input{qareport/tables/tab-assets-tax3}
 The list of assets and their taxonomies are shown in Table~\ref{tab:assets-tax3}.
@@ -14,13 +14,13 @@ Table~\ref{tab:gmfs-diff-l7-5} lists the ground motion fields used in this test 
 
 Table~\ref{tab:vf-ln-tax3-zcov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
 
-Since there is no variability in the loss ratio, calculation of the loss ratios is straightforward in this case. Consider asset $a3$, which has the taxonomy $tax1$.  The ground motion values at the location of the single asset are $[0.15, 0.05, 0.05, 0.15, 0.15] g$. Consider the first value of $PGA = 0.15 g$. The vulnerability function for this case provides mean loss ratio values at intensity measure levels $0.05 g$ and $0.20 g$, but none at $0.15 g$. The mean loss ratios at $0.05 g$ and $0.20 g$ are $0.01$ and $0.04$ respectively.
+Since there is no variability in the loss ratio, calculation of the loss ratios is straightforward in this case. Consider asset $a3$, which has the taxonomy $tax1$.  The ground motion values at the location of the single asset are $[0.15, 0.05, 0.05, 0.15, 0.15] g$. Consider the first value of $PGA = 0.15 g$. The vulnerability function for this taxonomy provides mean loss ratio values at intensity measure levels $0.05 g$ and $0.20 g$, but none at $0.15 g$. The mean loss ratios at $0.05 g$ and $0.20 g$ are $0.01$ and $0.04$ respectively.
 
 The mean loss ratio at $0.15 g$ is obtained by interpolating between these two values. Linear interpolation gives a mean loss ratio of $0.03$ for $PGA = 0.15 g$.
 
 Similar interpolation for the other ground motion values gives mean loss ratios of $0.01$, $0.01$, $0.03$, and $0.03$ respectively. These numbers are multiplied by the asset value for $a1$ of $10,000$ to give loss values for asset $a1$ of $[300, 100, 100, 300, 300]$.
 
-Repeating this exercise for the six other assets, we get the following loss values for the five ground motion fields:
+Repeating this exercise for the six other assets, using the appropriate vulnerability function for each taxonomy, we get the following loss values for the five ground motion fields:
 
 \begin{itemize}
 	\item $a1$: $[550, 4490, 1300, 3385, 9300]$
