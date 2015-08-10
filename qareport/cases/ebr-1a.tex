@@ -1,4 +1,4 @@
-The source model used for this test case comprises a simple vertical strike-slip fault using a truncated Gutenberg-Richter magnitude-frequency distribution.\\
+The source model used for this test case comprises a simple vertical strike-slip fault using a truncated Gutenberg-Richter magnitude-frequency distribution (MFD).\\
 
 \noindent Details of the source model are listed below:\\
 
@@ -13,7 +13,7 @@ Rupture aspect ratio: 2.0\\
 Rake angle: $0^{\circ}$\\
 Magnitude scaling relationship: Wells and Coppersmith (1994)\\
 Magnitude-frequency distribution:\\
-Truncated Gutenberg-Richter: $a = 3.1292; b = 0.9; M_{min} = 5.0; M_{max} = 6.5$\\
+Truncated Gutenberg-Richter: $a = 3.1292$; $b = 0.9$; $M_{min} = 5.0$; $M_{max} = 6.5$\\
 
 The time period for both the hazard and the risk calculations in this case are one year. This case uses a collection of 100,000 stochastic event sets, each spanning one year, to generate a set of ground motion fields representative of the seismicity of the specified region, collectively spanning a period of 100,000 years. A single stochastic event set (SES) may contain zero or more ruptures that are generated based on the frequency distribution of the sources. Each SES in this case represents one simulation of the possible events that might occur in one year.
 
@@ -37,7 +37,7 @@ Finally, the probabilities of exceedance for the set of eleven loss values are c
 
 The probabilities of exceedance for the eleven loss values are computed to be the following: $[3.950\times10^{-2}, 7.958\times10^{-3}, 2.926\times10^{-3}, 1.329\times10^{-3}, 8.696\times10^{-4}, 4.799\times10^{-4}, 2.500\times10^{-4}, 1.300\times10^{-4}, 6.000\times10^{-5}, 0.000]$.
 
-The loss curve thus calculated above using the implementation of the calculator in Julia is compared with the loss curve obtained using the OpenQuake classical PSHA based risk calculator in Figure~\ref{fig:lc-ebr-1a}.
+The implementation of the event based risk calculator in Julia begins with the set of ground motion fields produced by the OpenQuake event based hazard calculator, and proceeds according to the steps listed above. The loss curve thus calculated above using the implementation of the calculator in Julia is compared with the loss curve obtained using the OpenQuake classical PSHA based risk calculator in Figure~\ref{fig:lc-ebr-1a}.
 
 \begin{figure}[htbp]
 \centering
