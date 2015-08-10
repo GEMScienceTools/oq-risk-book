@@ -1,0 +1,30 @@
+The purpose of this case is to test the integration of the derivative of the site hazard curve with the discrete fragility function for a single asset. Table~\ref{tab:ff-disc-tax1-zndl} shows the set of ground motion intensity levels and corresponding probabilities of exceedance for the four damage states for the discrete fragility function used in this test case.
+
+When the exposure model and discrete fragility model are provided to the OpenQuake classical PSHA-based hazard calculator, OpenQuake computes the hazard curves at the locations of the assets in the exposure model and at the specific intensity levels used in the fragility functions.
+
+\input{qareport/tables/tab-hc-l1-cd}
+
+The intensity levels for the hazard curve are extracted from the fragility function: \\
+$[0.05, 0.20, 0.40, 0.60, 0.80, 1.00, 1.20, 1.40, \dots, 5.00]$\\
+
+The hazard curve gives the probabilities of exceedance for a set of intensity levels within a specified time period. The time period in this case, $t_H$, is one year. The hazard curve at the location of the single asset used in this test case is shown in Table~\ref{tab:hc-l1-cd}.
+
+The probabilities of exceedance are: $[3.986\times10^{-2}, 2.222\times10^{-2}, 8.171\times10^{-3}, 3.071\times10^{-3}, 1.230\times10^{-3}, 5.195\times10^{-4}, 2.254\times10^{-4}, 9.918\times10^{-5}, \dots, 0]$. The probabilities of exceedance are first converted to annual rates (or frequencies) of exceedance by employing the Poissonion conversion:
+
+\begin{equation}
+	\lambda(iml) = \frac{-\ln [1 - prob(IML > iml, t_H)]}{t_H}
+\end{equation}
+
+The annual frequencies of exceedance are: $[3.974\times10^{2}, 2.247\times10^{2}, 8.205\times10^{3}, 3.075\times10^{3}, 1.231\times10^{3}, 5.197\times10^{4}, 2.254\times10^{4}, 9.918\times10^{5}, \dots, 0]$.
+
+The annual frequencies of occurrence are estimated by the differentiation of the annual frequencies of exceedance: $[1.727\times10^{2}, 1.426\times10^{2}, 5.130\times10^{3}, 1.845\times10^{3}, 7.109\times10^{4}, 2.942\times10^{4}, 1.262\times10^{4}, 5.565\times10^{5}, \dots, 0]$.
+
+Now, the annual frequencies of occurrence of the set of intensity measure levels, as computed above, are multiplied by the corresponding probabilities of exceedance of the damage states given these intensity measure levels. The probabilities of exceedance of the damage states are obtained directly from the discrete fragility function. For each damage state, the products thus obtained are summed across all the intensity measure levels, giving the annual frequency of exceedance for that damage state.
+
+Assuming that exceedances of the damage states follow Poisson processes, the probabilities of exceedance for the set of damage states are calculated from the annual frequencies of exceedance $\lambda_{D \geq d_i}$ and the exposure time period $t_R$ through:
+
+\begin{equation}
+	prob(D \geq d_i, t_R) = 1 - \exp (-\lambda_{D \geq d_i} \times t_R)
+\end{equation}
+
+Finaly, the probabilities of occurrence for the set of damage states within the specified time period are computed from the probabilities of exceedance calculated above.
