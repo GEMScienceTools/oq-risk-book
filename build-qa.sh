@@ -3,6 +3,7 @@ makeindex oq-risk-qa.idx -s configuration/StyleInd.ist
 bibtex oq-risk-qa > qa-bib.log
 makeglossaries oq-risk-qa > qa-glos.log
 pdflatex -interaction=nonstopmode oq-risk-qa.tex > qa-tex.log
+bibtex oq-risk-qa > qa-bib.log
 pdflatex -interaction=nonstopmode oq-risk-qa.tex > qa-tex.log
 cat qa-tex.log | grep "Error"
 cat qa-tex.log | grep "Warning"

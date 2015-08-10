@@ -2,7 +2,9 @@
 The unit-testing at the component level breaks the functions into simple
 calculations whose results can be verified by hand. These tests, similar in nature to that illustrated previously, provide the majority of the line and parameter coverage needed to ensure a robust code.
 
-To illustrate the comprehensive nature of the coverage we consider the example of 
+To illustrate the comprehensive nature of the coverage we consider the example of the lognormal distribution function used for representing continuous vulnerability functions:
+
+
 %
 The test suite for this one function is illustrative of several key components of the unit-testing. First is the use of an independent tool to provide the expected values of the calculation under simple conditions. Second is the use of ``extreme cases'' such as polar locations, or across the International Dateline. These ensure that the function can be global in application.
 
