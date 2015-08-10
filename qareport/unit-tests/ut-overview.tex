@@ -1,8 +1,7 @@
 At the first level of the code testing process is the practice of
 ``unit-testing''. This process is a central tenet of test-driven software
 development and is widely established as a means of ``best-practice''. %
-Before looking closely at the OpenQuake-engine
-approach to unit-testing it is important to establish what are the precise objectives of the unit-testing process and the benefits (and limitations) that it brings.
+Before looking closely at the OpenQuake-engine approach to unit-testing it is important to establish what are the precise objectives of the unit-testing process and the benefits (and limitations) that it brings.
 
 
 \subsection{Correctness of implementation}
@@ -30,18 +29,15 @@ correctly, we wish to write a set of tests that will confirm the behaviour is co
 \end{enumerate}
 
 A unit-test for this function is an additional function that will check that both cases are satisfied, and will report an error if not. 
-A comprehensive unit-test suite for a software may fulfil two objectives: \textbf{line coverage} and \textbf{parameter coverage}. The former should ensure that, in as far as possible, every line (or statement) in the code is executed at some point in the testing process. The latter should ensure
-that the behaviour of the function is predictable when supplied with ``unusual'' parameters. In the above example, both objectives are satisfied
-by the tests. The first test will result in a positive valued ``area'',
-thus executing the second branch of the logical path, the second test will
-result in a negative area and will execute the first logical branch. %
+A comprehensive unit-test suite for a software may fulfil two objectives: \textbf{line coverage} and \textbf{parameter coverage}. The former should ensure that, in as far as possible, every line (or statement) in the code is executed at some point in the testing process. The latter should ensure that the behaviour of the function is predictable when supplied with ``unusual'' parameters. In the above example, both objectives are satisfied by the tests. The first test will result in a positive valued ``area'', thus executing the second branch of the logical path, the second test will result in a negative area and will execute the first logical branch. %
+
 Therefore all lines of the code are covered and the line coverage is complete. We also see that in this simple example there are four possible
 cases: i) a is positive and b is positive, ii) a is positive and b is negative,  ii) a is negative and b is positive, and iv) both a and b are negative. Only the first case is valid, therefore the first test ensures that they provide the correct answer (usually verified by independent means), whilst the remaining tests should ensure that the function raises the correct error. Thus the full parameter space of the input is ensured.
 
 The above case is, of course, trivial; however, as shall be seen in due
 course, this same process can be applied in more complex contexts.
 
-Furthermore, the same unit-testing approach can be applied not only to individual components within the PSHA calculation, but also to full calculations, essentially verifying that the hazard curve produced by the full PSHA calculator is in agreement with that produced independently (sometimes by hand).
+Furthermore, the same unit-testing approach can be applied not only to individual components within the hazard and risk calculations, but also to full calculations, essentially verifying that the hazard curves and loss curves produced by the full OpenQuake probabilistic hazard and risk calculators are in agreement with those produced independently (sometimes by hand calculations).
 
 
 \subsection{Identify problems prior to software release}
