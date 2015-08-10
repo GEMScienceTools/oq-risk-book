@@ -24,7 +24,13 @@ The vulnerability model is then transformed into a matrix describing probabiliti
 
 Now, the sum product of each row of the conditional loss ratio exceedance matrix with the annual frequencies of occurrence of the respective intensity levels gives the annual frequency of exceedance for the respective loss ratios. The loss ratio annual frequencies of exceedance thus calculated are: $[3.973\times10^{2}, 3.110\times10^{2}, 1.533\times10^{2}, 5.633\times10^{3}, 2.146\times10^{3}, 8.682\times10^{4}, 3.656\times10^{4}, 1.554\times10^{4}, 6.443\times10^{5}, 2.399\times10^{5}]$.
 
-The probabilities of exceedance of the set of loss ratios are obtained by converting the frequencies of exceedance back into probabilities by using the Poissonion assumption. The loss curve probabilities of exceedance are: $[3.895\times10^{2}, 3.062\times10^{2}, 1.521\times10^{2}, 5.617\times10^{3}, 2.144\times10^{3}, 8.678\times10^{4}, 3.655\times10^{4}, 1.554\times10^{4}, 6.443\times10^{5}, 2.399\times10^{5}, 5.683\times10^{6}]$.
+The probabilities of exceedance of the set of loss ratios are obtained by converting the frequencies of exceedance  $\lambda_{L \geq l}$ back into probabilities $prob(L \geq l, t_R)$ of exceedance over the exposure time period $t_R$ by using the Poissonion assumption:
+
+\begin{equation}
+	prob(L \geq l, t_R) = 1 - \exp (-\lambda_{L \geq l} \times t_R)
+\end{equation}
+
+The loss curve probabilities of exceedance thus calculated are: $[3.895\times10^{2}, 3.062\times10^{2}, 1.521\times10^{2}, 5.617\times10^{3}, 2.144\times10^{3}, 8.678\times10^{4}, 3.655\times10^{4}, 1.554\times10^{4}, 6.443\times10^{5}, 2.399\times10^{5}, 5.683\times10^{6}]$.
 
 The loss curve thus calculated above is compared with the loss curve obtained using the OpenQuake classical PSHA based risk calculator in Figure~\ref{fig:lc-cr-1a}.
 

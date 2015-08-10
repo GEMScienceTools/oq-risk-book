@@ -1,38 +1,20 @@
-The tests for the event-based risk calculator assume the correct computation of the ground motion fields at the locations of the assets in the exposure model. Thus, the risk tests implicitly rely on the acceptance tests for the event-based hazard calculator.
-
-The source model used for the tests comprises a single vertical strike-slip fault with a Gutenberg-Richter b-value equal to 0.9 and a slip rate of 2 mm/yr. The MFD is a Gutenberg-Richter distribution truncated between magnitudes 5.0 and 6.5, while the Ground Motion Prediction Equation (GMPE) used is Sadigh et al. (1997), with sigma set to zero.\\
-
-\noindent Details of the fault geometry are given below:\\
-
-\noindent
-Fault type: Strike slip\\
-Fault dip: $90^{\circ}$\\
-Fault plane depths: 0--12 km\\
-Fault coordinates:\\
-South end: $38.0000^{\circ} N$, $122.0000^{\circ} W$\\
-North end: $38.2248^{\circ} N$, $122.0000^{\circ} W$\\
-
-\input{qareport/tables/tab-assets.tex}
-
-The list of assets in the exposure model used for the multiple-asset test cases for the event-based risk calculator is given in Table \ref{tab:assets}. The complete collection of input models and job configuration files used in these test cases can be accessed here:
-\href{https://github.com/gem/oq-risklib/tree/master/openquake/qa_tests_data/event_based_risk}
-{https://github.com/gem/oq-risklib/tree/master/openquake/qa\_tests\_data/event\_based\_risk}
+The OpenQuake event based risk calculator builds on the outputs of the event based hazard calculator, employing Monte Carlo sampling techniques to compute event loss tables, asset loss exceedance curves, average annual asset losses, portfolio loss exceedance curves, and average annual portfolio loss. The tests for the event-based risk calculator assume the correct computation of the ground motion fields at the locations of the assets in the exposure model. Thus, the risk tests implicitly rely on the acceptance tests for the event-based hazard calculator.
 
 \subsection{Single asset tests}
 \label{subsec:acc-ebr-single}
 \input{qareport/acceptance/acc-ebr-single}
 
 % -----------------------------------------------------------------------------
-\subsection{Multiple asset tests}
-\label{subsec:acc-ebr-multiple}
-\input{qareport/acceptance/acc-ebr-multiple}
+% \subsection{Multiple asset tests}
+% \label{subsec:acc-ebr-multiple}
+% \input{qareport/acceptance/acc-ebr-multiple}
 
 % -----------------------------------------------------------------------------
-\subsection{Calculation with logic-trees}
-\label{subsec:acc-ebr-logictrees}
-\input{qareport/acceptance/acc-ebr-logictrees}
+% \subsection{Calculation with logic-trees}
+% \label{subsec:acc-ebr-lt}
+% \input{qareport/acceptance/acc-ebr-lt}
 
 % -----------------------------------------------------------------------------
-\subsection{Insurance tests}
-\label{subsec:acc-ebr-insurance}
-\input{qareport/acceptance/acc-ebr-insurance}
+% \subsection{Insurance tests}
+% \label{subsec:acc-ebr-insurance}
+% \input{qareport/acceptance/acc-ebr-insurance}
