@@ -1,0 +1,10 @@
+This case tests the computation of the loss curve and average loss when the value of the assets is specified per unit, and the number of units in each asset are provided in the exposure model. The vulnerability function used is the same as in Case~1d and shown in Table~\ref{tab:vf-ln-tax1-nzcov}. The asset has two units, and the value per unit is $7,500$. The aggregate asset value in this case is thus $15,000$. Apart from the change in the exposed value, the calculation procedure remains the same as described in Case~1d.
+
+The loss curve calculated using the implementation of the calculator in Julia is compared with that produced by OpenQuake in Figure~\ref{fig:lc-ebr-4b}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=12cm]{qareport/figures/fig-lc-ebr-4b}
+\caption{Loss curve comparison for event based risk test case 4b}
+\label{fig:lc-ebr-4b}
+\end{figure}
