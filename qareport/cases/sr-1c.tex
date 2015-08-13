@@ -6,7 +6,14 @@ Table~\ref{tab:gmfs-iden-l1-1000} lists five of the one thousand identical groun
 
 \input{qareport/tables/tab-vf-ln-tax1-nzcov}
 
-Table~\ref{tab:vf-ln-tax1-nzcov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
+Table~\ref{tab:vf-ln-tax1-nzcov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case. The vulnerability model is shown in Figure~\ref{fig:vf-ln-tax1-nzcov}, where the dots represent the median loss ratios at a set of intensity levels, and the error bars depict the 16^{th} and 84^{th} percentiles of the conditional lognormal distribution at those intensity levels.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=12cm]{qareport/figures/fig-vf-ln-tax1-nzcov}
+\caption{Vulnerability model with nonzero coefficients of variation}
+\label{fig:vf-ln-tax1-nzcov}
+\end{figure}
 
 The vulnerability function for this case provides mean loss ratio values and coefficients of variation at intensity measure levels $PGA = 0.4 g$ and $0.6 g$, but none at $0.5 g$. Linear interpolation gives a mean loss ratio of $0.15$ for $PGA = 0.5 g$. Similarly, the coefficients of variation of the loss ratio at $0.4 g$ and $0.6 g$ are $0.24$ and $0.32$ respectively. The coefficient of variation of the loss ratio for $PGA = 0.5 g$ is obtained by linear interpolation as $0.28$.
 
