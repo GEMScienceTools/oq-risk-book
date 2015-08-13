@@ -1,4 +1,4 @@
-Variability in the ground motion is considered in all cases starting from Case~1f. Ten thousand ground motion fields are generated for the given rupture, taking into consideration both the inter-event and intra-event variability in the ground motion. The ground motion prediction equation used is Boore and Atkinson (2008).
+Variability in the ground motion is considered in all cases starting from Case~1f. Ten thousand ground motion fields are generated for the given rupture, taking into consideration both the inter-event and intra-event variability in the ground motion. The ground motion prediction equation used is \citet{boore2008}.
 
 The purpose of this case is to test the computation of the mean and standard deviation of the loss, given variability in both the ground motion values and in the lognormal vulnerability functions.
 
@@ -8,7 +8,7 @@ Table \ref{tab:gmfs-sim-l1-10000} lists five of the ten thousand ground motion v
 
 Since the mean loss ratios in the vulnerability function are not a linear function of the intensity measure levels, an analytical solution for the mean and standard deviation of loss for the scenario cannot be found as in the previous cases. Thus, in order to check the OpenQuake results, an alternate implementation of the calculator algorithm in the programming language Julia is used for comparison. In order to provide a representative baseline for the comparison, one million ground motion fields are used in the Julia calculation.
 
-The mean and standard deviation of the logarithm of the ground motion calculated at the location of the asset as obtained by using the Boore and Atkinson (2008) equation are $-0.648$ and $0.564$ respectively. Assuming a lognormal distribution for the variability in the ground motion, one million motion values are generated using Julia with these logarithmic mean and standard deviation values.
+The mean and standard deviation of the logarithm of the ground motion calculated at the location of the asset as obtained by using the \citet{boore2008} equation are $-0.648$ and $0.564$ respectively. Assuming a lognormal distribution for the variability in the ground motion, one million motion values are generated using Julia with these logarithmic mean and standard deviation values.
 
 The mean loss ratio and standard deviation of loss ratio for each simulated ground motion value are obtained through interpolation on the mean loss ratios and corresponding coefficients of variation provided by the vulnerability function. Using the interpolated mean and standard deviation of loss ratios, one loss ratio is sampled for each ground motion value, assuming a lognormal distibution.
 

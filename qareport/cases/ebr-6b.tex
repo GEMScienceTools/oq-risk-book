@@ -2,7 +2,7 @@ This case involving multiple assets is designed to test of the computation of th
 
 The list of assets and their taxonomies are shown in Table~\ref{tab:assets-tax1}. Table~\ref{tab:vf-ln-tax3-zcov} shows the mean loss ratios and corresponding coefficients of variation in the vulnerability function used in this test case.
 
-Ground motion fields are generated for each of the ruptures generated in the 100,000 stochastic event sets. These ground motion fields take into consideration both the inter-event and intra-event variability in the ground motion. The ground motion prediction equation used is Boore and Atkinson (2008), and the Jayaram and Baker (2009) model for spatial correlation of ground motion values is applied. These ground motion fields are also used for the corresponding calculation in Julia.
+Ground motion fields are generated for each of the ruptures generated in the 100,000 stochastic event sets. These ground motion fields take into consideration both the inter-event and intra-event variability in the ground motion. The ground motion prediction equation used is \citet{boore2008}, and the \citet{jayaram2009} model for spatial correlation of ground motion values is applied. These ground motion fields are also used for the corresponding calculation in Julia.
 
 Since the sampled loss ratios conditional on a given ground motion field for different assets of the same taxonomy are assumed to be uncorrelated in this case, a loss ratio is sampled independently for each asset from the univariate lognormal distribution for that asset for each ground motion field.
 

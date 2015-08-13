@@ -2,7 +2,14 @@ Test Case~1c repeats the exercise from Case~1a, with the difference that the dis
 
 \input{qareport/tables/tab-gmfs-diff-l1-5b}
 
-Table~\ref{tab:gmfs-diff-l1-5b} lists the five ground motion values used in this test case, and Table~\ref{tab:ff-disc-tax1-zndl} the discrete fragility function used in this test case. The "no damage limit" is specified to be $0.3 g$.
+Table~\ref{tab:gmfs-diff-l1-5b} lists the five ground motion values used in this test case, and Table~\ref{tab:ff-disc-tax1-zndl} the discrete fragility function used in this test case. The "no damage limit" is specified to be $0.3 g$.  The fragility model is shown in Figure~\ref{fig:ff-disc-tax1-nzndl}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=12cm]{qareport/figures/fig-ff-disc-tax1-nzndl}
+\caption{Discrete fragility model with four damage states and a nonzero no damage limit}
+\label{fig:ff-disc-tax1-nzndl}
+\end{figure}
 
 The ground motion values at the location of the single asset are $[1.3, 0.044, 0.22, 1.0, 1.2] g$. The calculation of the damage state exceedance probabilities proceeds in exactly the same manner as demonstrated in Case~1a, except that for the ground motion values of $0.044 g$ and $0.22 g$, the probabilities for all four damage states are assumed to be zero.
 
