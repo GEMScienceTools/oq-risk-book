@@ -1,7 +1,13 @@
 \section{Verification Framework}
 The main purpose of the acceptance tests is to ensure that the risk calculators work according to the design specifications and to verify that the calculators produce correct results for a variety of input cases. Correctness of the test case results is verified by comparing with hand calculations for the simple test cases or with alternate implementaions in Julia for the complex cases.
 
-\section{Theoretical Background}
+It is acknowledged that finding and eliminating all of the errors in a large software codebase like OpenQuake is nearly impossible and indeed impractical, given the constraints on time and effort and the sheer number of logical paths through the program. Thus, the verification framework adopted to assess the correctness of the implementation of the various OpenQuake calculators relies on a suite of test-cases designed specifically to test key elements and features of the program.
+
+The test suite follows an bottom-up incremental testing approach \citep{myers2012}. The initial cases are designed to test the core algorithms of the calculators for simple computations which have exact solutions that can be verified by hand calculations. The later cases build upon these initial cases, adding more features and complexity to the tests. This cascading framework has the advantage that incorrect assumptions and mistakes in the core algorithms will be detected earlier. Debugging is also highly faclitated by this approach, since the incremental test cases often help to highlight the specific module where the error is likely to be located.
+
+The following sections provide a very brief overview of the basic concepts for the OpenQuake Risk calculators, and the testing framework adopted for those calculators. Please refer to the OpenQuake-engine User Manual for more information on the implementation of the calculators and the OpenQuake Risk Book for more details about the theoretical aspects of the risk calculators.
+
+\section{Background for the Risk Calculators}
 % \subsection{Basic concepts}
 %    \label{subsec:theory-basic-concepts}
 %    \input{qareport/theory/theory-basic-concepts.tex}
