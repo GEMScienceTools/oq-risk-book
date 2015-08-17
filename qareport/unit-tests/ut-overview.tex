@@ -1,8 +1,6 @@
-At the first level of the code testing process is the practice of
-``unit-testing''. This process is a central tenet of test-driven software
-development and is widely established as a means of ``best-practice''. %
-Before looking closely at the OpenQuake-engine approach to unit-testing it is important to establish what are the precise objectives of the unit-testing process and the benefits (and limitations) that it brings.
+At the first level of the code testing process is the practice of ``unit-testing''. This process is a central tenet of test-driven software development and is widely established as a means of ``best-practice''. According to \citet{myers2012}, \emph{``Unit testing is a process of testing the individual subprograms, subroutines, or procedures in a program. That is, rather than initially testing the program as a whole, testing is first focused on the smaller building blocks of the program.''}.
 
+Before looking closely at the OpenQuake-engine approach to unit-testing it is important to establish what are the precise objectives of the unit-testing process and the benefits (and limitations) that it brings.
 
 \subsection{Correctness of implementation}
 This objective is obviously the primary goal of unit-testing, to ensure that each function of the code is operating in the manner expected by the developer. ``Correctness'', in this case, requires that the function produces both the correct output, but also if there are cases in which function may fail then the means of failure should be predictable. The following is a relatively simple example of how a unit-test relates to a function:
@@ -17,9 +15,8 @@ def get_log_area(length, width):
         return log10(length * width)
 \end{lstlisting}
 
-From the description above it is evident that the user requirements  inform the manner in which the function should behave (i.e. negative
-values cannot be tolerated). To ensure that the function is operating
-correctly, we wish to write a set of tests that will confirm the behaviour is correct:
+From the description above it is evident that the user requirements inform the manner in which the function should behave (i.e. negative
+values cannot be tolerated). To ensure that the function is operating correctly, we wish to write a set of tests that will confirm the behaviour is correct:
 
 \begin{enumerate}
 \item If both $a$ and $b$ are equal to 10.0, then the function     should return 2.0
@@ -28,21 +25,20 @@ correctly, we wish to write a set of tests that will confirm the behaviour is co
 \item If $a = -1$ and $b = -1$ the function should raise an error     reporting the stated message ``Both inputs must be positive''.
 \end{enumerate}
 
-A unit-test for this function is an additional function that will check that both cases are satisfied, and will report an error if not. 
+A unit-test for this function is an additional function that will check that both cases are satisfied, and will report an error if not.
+
 A comprehensive unit-test suite for a software may fulfil two objectives: \textbf{line coverage} and \textbf{parameter coverage}. The former should ensure that, in as far as possible, every line (or statement) in the code is executed at some point in the testing process. The latter should ensure that the behaviour of the function is predictable when supplied with ``unusual'' parameters. In the above example, both objectives are satisfied by the tests. The first test will result in a positive valued ``area'', thus executing the second branch of the logical path, the second test will result in a negative area and will execute the first logical branch. %
 
-Therefore all lines of the code are covered and the line coverage is complete. We also see that in this simple example there are four possible
-cases: i) a is positive and b is positive, ii) a is positive and b is negative,  ii) a is negative and b is positive, and iv) both a and b are negative. Only the first case is valid, therefore the first test ensures that they provide the correct answer (usually verified by independent means), whilst the remaining tests should ensure that the function raises the correct error. Thus the full parameter space of the input is ensured.
+Therefore all lines of the code are covered and the line coverage is complete. We also see that in this simple example there are four possible cases: i) a is positive and b is positive, ii) a is positive and b is negative, ii) a is negative and b is positive, and iv) both a and b are negative. Only the first case is valid, therefore the first test ensures that they provide the correct answer (usually verified by independent means), whilst the remaining tests should ensure that the function raises the correct error. Thus the full parameter space of the input is ensured.
 
-The above case is, of course, trivial; however, as shall be seen in due
-course, this same process can be applied in more complex contexts.
+The above case is, of course, trivial; however, as shall be seen in due course, this same process can be applied in more complex contexts.
 
 Furthermore, the same unit-testing approach can be applied not only to individual components within the hazard and risk calculations, but also to full calculations, essentially verifying that the hazard curves and loss curves produced by the full OpenQuake probabilistic hazard and risk calculators are in agreement with those produced independently (sometimes by hand calculations).
-
 
 \subsection{Identify problems prior to software release}
 This advantage is largely self-explanatory, but for many software projects this can reduce the possibility of requiring \emph{a posteriori} fixes to the code (patches). By compiling a comprehensive suite of unit-tests, and following a software development and release process that should automatically run the tests at the point of packaging, this should ensure that new features added to the software cannot inadvertently break other components.
 
+Another critical component of software testing is catching user-input errors at the source and preventing calculations with erroneous inputs from running in the first place. Thus, the input models associated with a calculation are carefully analysed prior to the computation for errors and incompatible parameters, and an error is issued to the user.
 
 \subsection{Facilitate improvements in performance}
 In the creation of software intended to perform demanding scientific calculations, like those commonly associated with probabilistic seismic hazard and risk analysis, the issue of computational performance and efficiency is a major one. There is a continuing need to improve the speed and reduce the work required to undertake the haard and risk calculations. To implement improvements it is necessary to ensure that optimisations do not modify the outputs of the calculation, only the speed at which they are performed. Thus, unit-testing is absolutely fundamental to this process as optimisation cannot be undertaken readily without a means to ensure the calculation outputs have not changed.
