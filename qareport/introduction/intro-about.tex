@@ -1,11 +1,17 @@
-The current document describes the testing procedures adopted in the development of the hazard component of the \gls{acr:oqe}, the open source hazard and risk software developed by the Global Earthquake Model initiative.
+The current document describes the extensive testing procedures adopted in the development of the risk component of the \gls{acr:oqe}, the open source hazard and risk software developed by the Global Earthquake Model initiative. A similar document describing the testing procedures for the hazard component of the engine is also available \citep{pagani2014_oqtesting}.
 
-Nowadays seismic hazard analysis serves different needs coming from a variety of users and applications.
+The OpenQuake risk library comprises a set of calculators capable of computing human or economic losses for a collection of assets, caused by a given scenario event, or by considering the probability of all possible events that might happen within a region within a certain time span.
 
-These may encompass engineering design, assessment of earthquake risk to portfolios of assets within the insurance and reinsurance sectors, engineering seismological research, and effective mitigation via public policy in the form of urban zoning and building design code formulation.
+The OpenQuake library comprises a set of calculators for assessing the potential economic losses and human casualties for a given ``scenario'' event or over a certain period of time. The outputs from the risk calculators may be used by disaster preparedness teams for gaining understanding about the potential consequences of an earthquake on a city, by structural engineers for evaluating the potential benefits of earthquake-resistant design or retrofitting and in the design of building codes, or by insurance and reinsurance firms for assessing the earthquake risk for a portfolio of assets.
 
-Decisions based on seismic risk results may have impacts on
-population, properties and capitals, possibly with important repercussions on our day-to-day life. For these reasons, it is recommendable that the generation of hazard models and their calculation is based on well-recognized, state-of-the-art and tested techniques, requirements that must be reconciled with the need to regularly incorporate recent advances given the progress carried out within the scientific community.
+These use cases clearly illustrate the need for rigorous testing and quality assurance of the software in question, and it is imperative that the implementation of the risk calculators be based on well-recognized, state-of-the-art and tested techniques; requirements that must be reconciled with the need to regularly incorporate recent advances given the progress carried out within the scientific community.
+
+According to \citet{berkes2012} scientific software must be:
+\begin{itemize}
+\item Error proof
+\item Flexible and able to accommodate different methods
+\item Reproducible and re-usable
+\end{itemize}
 
 The features described below contribute to fulfill these requirements: %
 \begin{itemize}
@@ -21,22 +27,4 @@ into smaller independent components that can be implemented, maintained and test
 Software testing \citep{myers2012} is an important, complex and vast discipline which helps in developing methods and processes aimed at certifying the extent to which a computer code behaves according to the original design intent and user specifications.
 \end{itemize}
 
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=9cm]{figures/oq_engine_structure.pdf}
-\caption{A schematic describing the main components of the OpenQuake-engine software.}
-\label{fig:oqe-structure}
-\end{figure}
-
-
-The \gls{acr:oqe} includes different levels of modularity. The first is the one separating the engine itself into a number of libraries (see Figure \ref{fig:oqe-structure}), each one containing well identified knowledge, objects and methods (e.g. the OQ-hazardlib  includes objects and methods needed to compute probabilistic seismic hazard and the OQ-risklib contains methods to compute scenario and probabilistic seismic risk).
-
-The second one pertains to the data model adopted in the development of each library as a result of the abstraction process.
-
-According to \citet{berkes2012} scientific software must be:
-\begin{itemize}
-\item Error proof
-\item Flexible and able to accommodate different methods
-\item Reproducible and re-usable
-\end{itemize}
+The \gls{acr:oqe} includes different levels of modularity. The first is the one separating the engine itself into a number of libraries, each one containing well identified knowledge, objects and methods (e.g. the OQ-hazardlib includes objects and methods needed to compute probabilistic seismic hazard and the OQ-risklib contains methods to compute scenario and probabilistic seismic risk). The second one pertains to the data model adopted in the development of each library as a result of the abstraction process.

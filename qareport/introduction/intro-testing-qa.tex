@@ -6,15 +6,18 @@ Software testing focuses instead on detecting software faults by inspecting and 
 
 % -----------------------------------------------------------------------------
 \subsection{Software testing}
-Software testing can be implemented at different stages of the development process, with varying strategies to approach the problem.
+The basic purpose of software testing is to execute different parts of the program with the specific intent of finding errors or unexpected behavior.
 %
 The \gls{acr:oqe} and the associated libraries are developed following an agile paradigm. This development strategy is organized in a way that the creation of the real code is completed in parallel and fully integrated with the software testing process.
 
-The software engineering community provides a wide range of testing levels
-and typologies. In the current document we consider just a portion of them
-with the specific intent to illustrate the standards used in the development of the \gls{acr:oqe} and particularly of its risk calculation component.
+This type of testing of the OpenQuake risk (and hazard) library is achieved through extensive testing at various levels. At a very basic level, the introduction of any new code is always accompanied by a suite of unit-tests that check correct functioning of the new code for various combinations of possible inputs. Development also follows a continuous-integration approach, where the new code is merged into the codebase only after ensuring that the new code does not break any of the existing test cases.
+
+All new code is also subject to a formal ``code-review'' process, where one or more programmers or scientists assess the new code both visually to check for logical errors, and through trial runs to verify that it functions as claimed.
 
 % -----------------------------------------------------------------------------
 \subsection{Quality assurance}
-From the IEEE ``Standard for Software Quality Assurance Processes'':
-\emph{Software quality assurance is a set of activities that define and assess the adequacy of software processes to provide evidence that establishes confidence that the software processes are appropriate for and produce software products of suitable quality for their intended purposes. A key attribute of SQA is the objectivity of the SQA function with respect to the project. The SQA function may also be organizationally independent of the project; that is, free from technical, managerial, and financial pressures from the project.} In this document we are not covering topics related to \gls{acr:sqa} since this would go beyond its scope.
+According to the IEEE ``Standard for Software Quality Assurance Processes'':
+\emph{Software quality assurance is a set of activities that define and assess the adequacy of software processes to provide evidence that establishes confidence that the software processes are appropriate for and produce software products of suitable quality for their intended purposes. A key attribute of SQA is the objectivity of the SQA function with respect to the project. The SQA function may also be organizationally independent of the project; that is, free from technical, managerial, and financial pressures from the project.}
+
+Thus, apart from the extensive set of unit-tests for individual functions and modules, the continuous-integration process and formal code-review practices, the OpenQuake risk calculators also have a set of quality assurance tests. The focus of these QA tests is to ensure that the calculators function according to specifications and that the results for specific input models produce the expected outputs. Chapter~4 of this report documents the full range of test cases employed in the QA testing of the OpenQuake risk calculators, along with descriptions of the expected results calculated by hand or using an alternate implementation of the calculators in the programming language Julia.
+
