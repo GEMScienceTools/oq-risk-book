@@ -9,3 +9,15 @@ where $k$, the number of occurrences, is a random sample of $P_{rup}(k | T)$, an
 For each event in the stochastic event sets, a spatially correlated ground motion field (GMF) realisation is generated, taking into consideration both the inter-event variability of ground motions, and the intra-event residuals obtained from a spatial correlation model for ground motion residuals. The use of logic-trees allows for the consideration of uncertainty in the choice of a seismic source model, in the choice of GMPE models for the different tectonic regions, and in the choice of vulnerability functions for the different taxonomy types in the exposure model.
 
 For each GMF realization, a loss ratio is sampled for every asset in the exposure model using the provided probabilistic vulnerability model, taking into consideration the correlation model for vulnerability of different assets of a given taxonomy. Finally loss exceedance curves are computed for both ground-up losses and insured losses.
+
+Given this set of functionalities, the acceptance testing framework for the event-based risk calculator is divided into the following  test sets:
+
+\begin{enumerate}
+	\item Single asset test cases
+	\item Multiple asset test cases
+	\item Insured losses test cases
+	\item Logic-tree cases testing full-enumeration
+	\item Logic-tree cases testing sampling
+\end{enumerate}
+
+The individual test cases are described in more detail in \ref{sec:acc-ebr}.
